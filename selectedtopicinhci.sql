@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2017 at 06:21 PM
+-- Generation Time: Jun 08, 2017 at 12:10 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -19,6 +19,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `selectedtopicinhci`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `comment` varchar(1000) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`comment`, `name`, `pid`, `mid`) VALUES
+('test', 'meg', 2, 1),
+('ssads', 'ssads', 1, 2),
+('??????', '??????', 5, 3),
+('??????', '??????', 5, 4),
+('asds', 'asds', 5, 5),
+('?????', '?????', 5, 6),
+('?????', '?????', 5, 7),
+('??????', '?????', 2, 8),
+('??????', '?????', 2, 9),
+('กหฟแฟห', 'ฟหแหฟ', 2, 10),
+('หแฟหกห', 'หแฟหกห', 5, 11),
+('ออออ', 'ออออ', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -207,6 +238,12 @@ INSERT INTO `rating` (`pid`, `rate`, `rid`) VALUES
 --
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`mid`);
+
+--
 -- Indexes for table `picture`
 --
 ALTER TABLE `picture`
@@ -228,6 +265,11 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `picture`
 --

@@ -375,9 +375,33 @@ function drawBasic() {
                         <!-- Tab panes -->
                         <div class="tab-content" >
                             <div class="tab-pane active" id="home" >
-                                <center>
-                                    <div class="fb-comments"></div>
-                                </center>
+                                    <div class="col-md-12">
+
+                                      <?php
+                                          require '../api/commentbox.php';
+                                          $sqlm = 'SELECT * FROM comment where pid="'.$_GET['id'].'"';
+                                          $resultm = mysqli_query($conn, $sqlm);
+                                          if($resultm->num_rows==0){
+                                            echo '<h2>ยังไม่มีความคิดเห็น</h2><hr>';
+                                          }else{
+                                              while($rowm = mysqli_fetch_assoc($resultm)){
+                                                comment($rowm['name'],$rowm['comment']);
+                                              }
+                                          }
+                                       ?>
+
+                                        <div class="form-group" >
+                                          <label for="usr">Name:</label>
+                                          <input type="text" class="form-control" id="usr">
+                                          <label for="comment">Comment:</label>
+                                          <textarea class="form-control" rows="5" id="comment"></textarea>
+                                          <br />
+                                          <div style="text-align:right;">
+                                            <button type="button"  onclick="sendComment()" class="btn btn-default">ส่ง</button>
+                                          </div>
+
+                                        </div>
+                                    </div>
                             </div>
                             <div class="tab-pane" id="profile">คะแนนเฉลี่ยความพึงพอใจ <br />
                               <div id="rateYo">
@@ -396,8 +420,15 @@ function drawBasic() {
             </div>
         </div>
 
-        <div id="fb-root"></div>
         <script>
+        function sendComment(){
+          $.ajax({
+              url: '<?php echo $link;?>/api/comment.php?com='+document.getElementById("comment").value
+              +'&name='+document.getElementById("comment").value+'&id=<?php echo$_GET['id'];?>'
+            }).done(function() {
+              alert('ส่งข้อความสำเร็จ');
+          });
+        }
             $("#rateYo").rateYo({
              <?php
               $sql3 = 'SELECT Avg(`rate`) AS avg  FROM `rating` WHERE pid='.$_GET['id'];

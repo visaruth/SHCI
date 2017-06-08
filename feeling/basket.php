@@ -132,22 +132,6 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="mymodal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h2 class="modal-title">สถานะการชำระเงิน</h2>
-          </div>
-          <div class="modal-body">
-            <p class="lead">ชำระเงินเรียบร้อยแล้ว</p>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-info" data-dismiss="modal">ตกลง</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <script>
       (function($) {
         $.fn.spinner = function() {

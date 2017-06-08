@@ -1,9 +1,8 @@
 <?php
-session_start();
-  require '../api/nav.php';
-  require '../api/before.php';
-  require '../api/connect.php';
 
+require '../api/connect.php';
+  require '../api/before.php';
+session_start();
  ?>
 <html><head>
         <meta charset="utf-8">
@@ -11,9 +10,9 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="../assets/js/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/buy2.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="../public/images/brand.png">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/buy2.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="../public/images/brand.png"/>
     </head>
      <style type="text/css">
      .product{
@@ -89,6 +88,9 @@ session_start();
           }
     </style>
     <body>
+      <?php
+        require '../api/nav.php';
+        ?>
 
         <div class="section">
          <div class="container">
